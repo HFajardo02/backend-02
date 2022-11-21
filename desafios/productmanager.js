@@ -23,20 +23,23 @@ class ProductManager {
     
         const product = {
             id,
-            title, //(nombre del producto)
-            description, //(descripción del producto)
-            price, //(precio)
-            thumbnail, //(ruta de imagen)
-            code, //(código identificador)
-            stock //(número de piezas disponibles)
+            title,          //(nombre del producto)
+            description,    //(descripción del producto)
+            price,          //(precio)
+            thumbnail,      //(ruta de imagen)
+            code,           //(código identificador)
+            stock           //(número de piezas disponibles)
         }
 
         this.products.push(product)
     }
+
 }
 
 const manager = new ProductManager()
-manager.addProduct("Producto1", "DescProducto1", 100, null, "CodeProducto1", 100)
-manager.addProduct("Producto2", "DescProducto2", 200, null, "CodeProducto2", 200)
+manager.addProduct("Producto1", "DescProducto1", 100, "Sin imagen", "CodeProducto1", 100)
+manager.addProduct("Producto2", "DescProducto2", 200, "Sin imagen", "CodeProducto2", 200)
+manager.addProduct("Producto3", "DescProducto3", 300, "Sin imagen", "CodeProducto3", 300)
+
 
 console.log(manager.products);
