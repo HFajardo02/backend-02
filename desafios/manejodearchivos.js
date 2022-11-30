@@ -20,7 +20,7 @@ class ProductManager {
         		} catch (error) {
         			console.log(error);
         		}
-        	};
+    };
 
 
         getById = async id => {
