@@ -80,3 +80,14 @@ module.exports = ProductManager;
     // }
 
 //}
+
+//Para borrar por ID
+// async deleteProduct (idDelete){
+// 	const pdelete = await this.getProducts();
+// 	if (pdelete[idDelete-1] === undefined){
+// 		console.log(" No se borro nada ");
+// 	}else {
+// 		const newProduct = {}
+// 		pdelete.splice(idDelete-1, 1); 
+// 		// console.log("array", pdelete, "array");
+// 		pdelete.push(newProduct)
