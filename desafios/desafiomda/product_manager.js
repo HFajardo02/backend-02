@@ -65,10 +65,8 @@ class ProductManager {
         await this.write(list) 
     }
 
-    //Delete
     
-
-
+    //Delete Product
 
 }
 
