@@ -4,16 +4,16 @@ const manager = new ProductManager ('products.json');
 
 (async () => { 
     
-    // await manager.addProduct({
+    await manager.addProduct({
 
-    //     title: 'Product1',
-    //     description: 'Description1',
-    //     price: 100,
-    //     thumbnail: 'Thumbnail1',
-    //     code: 'Code1',
-    //     stock: 100
+        title: 'Product1',
+        description: 'Description1',
+        price: 100,
+        thumbnail: 'Thumbnail1',
+        code: 'Code1',
+        stock: 100
 
-    // })
+    })
 
     await manager.updateProductIdx (4, {
 
