@@ -26,6 +26,9 @@ const manager = new ProductManager ('products.json');
 
     })
 
+    //Descomentar para probar borrar producto por ID
+    //await manager.deleteProduct (4)
+
     console.log(await manager.getProducts());
 
 })()

@@ -29,6 +29,14 @@ class ProductManager {
         return data
     }
 
+    getProducById = async (id) => {
+        const products = await this.getProducts();
+    
+        const productFound = products.find((product) => product.id === id);
+    
+        return productFound;
+    }
+
     addProduct = async (obj) => {
         const list = await this.read ()
         const nextID = this.getNextID(list)
@@ -67,6 +75,20 @@ class ProductManager {
 
     
     //Delete Product
+    deleteProduct = async (id) => {
+        const products = await this.getProducts();
+    
+        const productIndex = products.findIndex((product) => product.id === id);
+    
+        if (productIndex === -1) throw new NotFoundError("Producto no encontrado");
+    
+        const deletedProducts = products.splice(productIndex, 1);
+    
+        await this.write(products);
+    
+        return deletedProducts[0];
+    }
+
 
 }
 
