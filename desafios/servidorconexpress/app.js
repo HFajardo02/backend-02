@@ -8,69 +8,69 @@ app.use(express.urlencoded({extended:true}))
 
 /* PETICION GET PARA OBTENER PRODUCTOS */
 app.get('/products', async(req, res) => {
-    let limit = req.query?.limit //defino una variable para el limite que viene por query (si existe)
+    let limit = req.query?.limit
     try {
-        let prods = await products.getProducts(limit) //llamo al método de la clase para obtener productos
+        let prods = await products.getProducts(limit)
         if (!prods) {
             return res.status(404).send({error: 'not found'})
         }
-        return res.status(200).send(prods) //envio la respuesta al cliente
+        return res.status(200).send(prods)
     } catch(error) {
-        return res.status(500).send(error.message) //envio la respuesta al cliente
+        return res.status(500).send(error.message)
     }
 })
 //el método getProducts se modificó para que admita un limit
 
 /* PETICION GET PARA OBTENER UN PRODUCTO */
-app.get('/products/:id', async(req, res) => { //defino una peticion get
-    let { id } = req.params //defino una variable para el id que viene por params
+app.get('/products/:id', async(req, res) => { 
+    let { id } = req.params 
     try {
-        let one = await products.getProductById(Number(id)) //llamo al método de la clase para obtener productos
+        let one = await products.getProductById(Number(id)) 
         if (!one) {
             return res.status(404).send({error: 'not found'})
         }
-        return res.status(200).send(one) //envio la respuesta al cliente
+        return res.status(200).send(one)
     } catch(error) {
-        return res.status(500).send(error.message) //envio la respuesta al cliente
+        return res.status(500).send(error.message)
     }
 })
 
 /* PETICION POST PARA CREAR UN PRODUCTO */
-app.post('/products', async(req, res) => { //defino una peticion post
-    let { title,description,price,code,stock,thumbnail } = req.body //defino las propiedades que vienen por body (postman)
+app.post('/products', async(req, res) => {
+    let { title,description,price,code,stock,thumbnail } = req.body
     try {
-        let prod = await products.addProduct({ title,description,price,code,stock,thumbnail }) //llamo al método de la clase para crear un producto
-        return res.status(200).send(prod) //envio la respuesta al cliente
+        let prod = await products.addProduct({ title,description,price,code,stock,thumbnail })
+        return res.status(200).send(prod)
     } catch(error) {
-        return res.status(500).send(error.message) //envio la respuesta al cliente
+        return res.status(500).send(error.message)
     }
 })
 
 /* PETICION PUT PARA MODIFICAR UN PRODUCTO */
-app.put('/products/:id', async(req, res) => { //defino una peticion put
-    let { id } = req.params //defino una variable para el id que viene por params
+app.put('/products/:id', async(req, res) => {
+    let { id } = req.params
     try {
-        let prod = await products.updateProduct(Number(id),req.body) //llamo al método de la clase para modificar un producto (req.body es un objeto enviado con postman)
+        let prod = await products.updateProduct(Number(id),req.body)
         if (!prod) {
             return res.status(404).send({error: 'not found'})
         }
-        return res.status(200).send(prod) //envio la respuesta al cliente
+        return res.status(200).send(prod)
     } catch(error) {
-        return res.status(500).send(error.message) //envio la respuesta al cliente
+        return res.status(500).send(error.message)
     }
 })
 
 /* PETICION DELETE PARA ELIMINAR UN PRODUCTO */
-app.delete('/products/:id', async(req, res) => { //defino una peticion delete
-    let { id } = req.params //defino una variable para el id que viene por params
+app.delete('/products/:id', async(req, res) => {
+    let { id } = req.params
     try {
-        let prod = await products.deleteProduct(Number(id)) //llamo al método de la clase para eliminar un producto
+        let prod = await products.deleteProduct(Number(id))
         if (!prod) {
             return res.status(404).send({error: 'not found'})
         }
-        return res.status(200).send(prod) //envio la respuesta al cliente
+        return res.status(200).send(prod)
     } catch(error) {
-        return res.status(500).send(error.message) //envio la respuesta al cliente
+        return res.status(500).send(error.message)
     }
 })
 
