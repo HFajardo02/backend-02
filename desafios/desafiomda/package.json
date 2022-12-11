@@ -1,8 +1,8 @@
 {
-  "name": "clases",
+  "name": "desafiomda",
   "version": "1.0.0",
   "description": "",
-  "main": "clase0.js",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -10,6 +10,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "multer": "^1.4.5-lts.1"
+    "express": "^4.18.2"
   }
 }
