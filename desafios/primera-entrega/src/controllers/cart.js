@@ -18,7 +18,7 @@ const deleteCart = (req, res= response) => {
     })
 }
 
-// update cart
+// actualizar
 const putCart = (req, res= response) => {
     res.json({
         msg: 'update cart'
